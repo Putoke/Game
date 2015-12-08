@@ -3,13 +3,16 @@
 
 #include <SDL.h>
 #include <iostream>
+#include <vector>
 #include "TextureManager.hpp"
+#include "player.hpp"
 
 class Game {
 private:
 	bool running;
 	SDL_Window * window;
 	SDL_Renderer * renderer;
+	std::vector<GameObject*> game_objects;
 public:
 	Game() {}
 	Game(const char *);

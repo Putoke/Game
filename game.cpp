@@ -28,10 +28,10 @@ bool Game::init(const char * title, int xpos, int ypos, int width, int height, i
 		return false;
 	}
 	running  = true;
-
-	//Testing texture mananger
-	TextureManager::Instance()->load("spritelib_gpl/platform/arc1.png", "test", renderer);
-
+	//Testing player class
+	TextureManager::Instance()->load("spritelib_gpl/platform/arc2.png", "test", renderer);
+	Player * player = new Player(0, 100, 34, 42, "test");
+	game_objects.push_back(player);
 	return true;
 }
 
@@ -49,12 +49,16 @@ void Game::handle_events() {
 }
 
 void Game::update() {
-	
+	for(auto it = game_objects.begin(); it != game_objects.end(); ++it) {
+		(*it)->update();
+	}
 }
 
 void Game::render() {
 	SDL_RenderClear(renderer);
-	TextureManager::Instance()->draw("test", 0, 0, 640, 400, renderer);
+	for(auto it = game_objects.begin(); it != game_objects.end(); ++it) {
+		(*it)->draw(renderer);
+	}
 	SDL_RenderPresent(renderer);
 }
 

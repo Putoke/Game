@@ -38,8 +38,8 @@ void TextureManager::draw(std::string id, int x, int y, int w, int h, SDL_Render
 
 void TextureManager::draw_frame(std::string id, int x, int y, int w, int h, int current_row, int current_frame, SDL_Renderer * renderer, SDL_RendererFlip flip) {
 	SDL_Rect src_rect, dst_rect;
-	src_rect.x = w * current_frame;
-	src_rect.y = h * current_row - 1;
+	src_rect.x = w * (current_frame - 1);
+	src_rect.y = h * (current_row - 1);
 	src_rect.w = dst_rect.w = w;
 	src_rect.h = dst_rect.h = h;
 	dst_rect.x = x;
