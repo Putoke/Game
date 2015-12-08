@@ -3,6 +3,7 @@
 
 #include <SDL.h>
 #include <iostream>
+#include "TextureManager.hpp"
 
 class Game {
 private:
